@@ -69,6 +69,12 @@ The script outputs a CSV file with the following columns:
 
 ---
 
+## Output Example
+
+![image](https://github.com/user-attachments/assets/d91c9f3f-ca1c-4587-87ff-c57061d761ff)
+
+---
+
 ## Limitations
 
 - The script depends on the current structure of the [5BestinCity](https://5bestincity.com/) website. Changes in the HTML structure may break the scraper.
