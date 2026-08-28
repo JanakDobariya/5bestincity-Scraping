@@ -1,13 +1,14 @@
-# 5 Best in City Data Scraper
+# 5BestInCity data scraper
 
-This repository contains a Python script for scraping business information from the website [5BestinCity](https://5bestincity.com/). It extracts data such as city names, business categories, business names, owners, ratings, and reviews, and saves the information into a CSV file.
+This repository contains an educational Python script for collecting public business-listing snapshots from [5BestInCity](https://5bestincity.com/). It records the city, category, listing name, displayed rating text, and source URL in CSV format.
 
 ---
 
 ## Features
 
 - **Web scraping with BeautifulSoup**: Fetches business details from various categories and cities listed on the website.
-- **Dynamic data extraction**: Handles nested data, including business categories, names, ratings, and reviews.
+- **Bounded runs**: Processes one city by default so a test does not accidentally create excessive traffic.
+- **Clear failures**: Uses timeouts and status checks, and does not overwrite an existing CSV when no records are found.
 - **Data output**: Saves the scraped data into a CSV file for further analysis.
 
 ---
@@ -42,14 +43,14 @@ pip install -r requirements.txt
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/5-best-in-city.git
-   cd 5-best-in-city
+   git clone https://github.com/JanakDobariya/5bestincity-Scraping.git
+   cd 5bestincity-Scraping
    ```
 
 2. **Run the script**:
    Execute the Python script to scrape data and save it to a CSV file:
    ```bash
-   python 5bestcity.py
+   python 5bestcity.py --max-cities 1 --output 5BestinCity.csv
    ```
 
 3. **Output**:
@@ -63,9 +64,9 @@ The script outputs a CSV file with the following columns:
 - **City**: Name of the city.
 - **Business Category**: Category of the business (e.g., restaurants, gyms).
 - **Business**: Name of the business.
-- **Name**: Owner or manager's name.
-- **Rate**: Rating of the business.
-- **Review**: Number of reviews.
+- **Name**: Name shown on the listing card; the script does not assume this identifies an owner.
+- **Rating Details**: Rating text displayed by the source page.
+- **Source URL**: Page from which the record was collected.
 
 ---
 
@@ -79,6 +80,8 @@ The script outputs a CSV file with the following columns:
 
 - The script depends on the current structure of the [5BestinCity](https://5bestincity.com/) website. Changes in the HTML structure may break the scraper.
 - Network issues or site restrictions may affect the scraping process.
+- The committed `5BestinCity_Data.csv` is a historical sample, not a live directory.
+- Keep request volume low and follow the website's terms and robots guidance.
 
 ---
 
